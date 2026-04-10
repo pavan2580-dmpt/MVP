@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd D:/personal/MVP/Mvp-inovations && npm install react-router-dom --legacy-peer-deps)",
+      "Bash(cd D:/personal/MVP/Mvp-inovations && npx tsc --noEmit 2>&1)"
+    ]
+  }
+}
