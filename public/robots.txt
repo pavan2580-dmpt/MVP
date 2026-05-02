@@ -1,49 +1,19 @@
 # robots.txt for MVP Innovations
-# Note: This is a development/staging version - not fully production ready
-# Last updated: May 2, 2026
+# Production version
 
-# Default crawling rules for all bots
 User-agent: *
 
-# Allow crawling of main public pages
-Allow: /
-Allow: /about
-Allow: /services
-Allow: /projects
-Allow: /team
-
-# Contact/Discussion page - Allow but with lower priority
-# This page contains a contact form for project discussions
-Allow: /discuss
-
-# Disallow dynamic service detail pages during development
-# Uncomment in production once all service pages are finalized
-# Allow: /services/*
-
-# Disallow common development/build artifacts
+# Block only unnecessary files/folders
 Disallow: /node_modules/
 Disallow: /.git/
 Disallow: /dist/
 Disallow: /build/
-
-# Disallow any test or staging paths
 Disallow: /test/
 Disallow: /staging/
 Disallow: /_dev/
 
-# Crawl delay (optional - adjust based on server capacity)
-# Crawl-delay: 1
+# Allow important dynamic pages
+Allow: /services/
 
-# Sitemap location (uncomment and update when sitemap is ready)
-# Sitemap: https://yourdomain.com/sitemap.xml
-
-# =============================================
-# Production Checklist (TODO):
-# =============================================
-# [ ] Update domain in Sitemap URL
-# [ ] Enable service detail pages crawling
-# [ ] Add structured data for better SEO
-# [ ] Verify all public pages are included
-# [ ] Remove development notes before deployment
-# [ ] Test with Google Search Console
-# =============================================
+# Sitemap (IMPORTANT)
+Sitemap: https://www.mvpinnovations.in/sitemap.xml
