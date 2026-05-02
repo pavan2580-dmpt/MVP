@@ -7,6 +7,7 @@ import { GlobeDemo } from '../components/GlobeDemo';
 const services = [
   {
     icon: Cpu,
+    slug: 'ai-machine-learning',
     title: 'AI & Machine Learning',
     description: 'Custom AI solutions that automate workflows, predict outcomes, and unlock insights from your data.',
     features: ['Natural Language Processing', 'Computer Vision', 'Predictive Analytics', 'AI Chatbots & Agents'],
@@ -16,6 +17,7 @@ const services = [
   },
   {
     icon: Globe,
+    slug: 'web-applications',
     title: 'Web Applications',
     description: 'Scalable, performant web apps built with modern frameworks that deliver exceptional user experiences.',
     features: ['React / Next.js', 'Full-Stack Development', 'API Design & Integration', 'Real-Time Features'],
@@ -25,6 +27,7 @@ const services = [
   },
   {
     icon: Smartphone,
+    slug: 'mobile-development',
     title: 'Mobile Development',
     description: 'Native and cross-platform mobile apps designed for engagement, speed, and reliability.',
     features: ['React Native / Flutter', 'iOS & Android', 'Offline-First Design', 'Push Notifications'],
@@ -34,6 +37,7 @@ const services = [
   },
   {
     icon: Zap,
+    slug: 'rapid-prototyping',
     title: 'Rapid Prototyping',
     description: 'Go from idea to interactive prototype in days, not months. Validate fast, iterate faster.',
     features: ['Design Sprints', 'Interactive Prototypes', 'User Testing', 'Market Validation'],
@@ -43,6 +47,7 @@ const services = [
   },
   {
     icon: Shield,
+    slug: 'cloud-security',
     title: 'Cloud & Security',
     description: 'Secure cloud infrastructure and DevOps pipelines that scale with your business needs.',
     features: ['AWS / GCP / Azure', 'CI/CD Pipelines', 'Security Audits', 'Auto-Scaling Infrastructure'],
@@ -52,6 +57,7 @@ const services = [
   },
   {
     icon: BarChart3,
+    slug: 'data-analytics',
     title: 'Data Analytics',
     description: 'Transform raw data into actionable dashboards and real-time reporting systems.',
     features: ['Custom Dashboards', 'ETL Pipelines', 'Business Intelligence', 'Real-Time Monitoring'],
@@ -81,9 +87,10 @@ export default function ServicesPage() {
       <section className="py-24 px-6" ref={gridRef}>
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, i) => (
-            <div
+            <Link
               key={service.title}
-              className="group relative p-8 rounded-2xl border border-slate-800 bg-slate-900/50 hover:border-slate-600 transition-all duration-500 hover:-translate-y-1 overflow-hidden"
+              to={`/services/${service.slug}`}
+              className="group relative p-8 rounded-2xl border border-slate-800 bg-slate-900/50 hover:border-slate-600 transition-all duration-500 hover:-translate-y-1 overflow-hidden block"
               style={{
                 opacity: gridVisible ? 1 : 0,
                 transform: gridVisible ? 'translateY(0)' : 'translateY(30px)',
@@ -98,7 +105,7 @@ export default function ServicesPage() {
                 </div>
                 <h3 className="text-xl font-semibold text-slate-100 mb-3">{service.title}</h3>
                 <p className="text-slate-400 leading-relaxed mb-5">{service.description}</p>
-                <ul className="space-y-2">
+                <ul className="space-y-2 mb-5">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-2 text-sm text-slate-500">
                       <Check className="w-3.5 h-3.5 text-slate-600 shrink-0" />
@@ -106,8 +113,11 @@ export default function ServicesPage() {
                     </li>
                   ))}
                 </ul>
+                <span className="inline-flex items-center gap-1 text-indigo-400 text-sm font-medium group-hover:gap-2 transition-all duration-200">
+                  Learn more <span className="text-xs">→</span>
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>

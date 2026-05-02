@@ -388,8 +388,8 @@ export function GlobeDemo() {
   ];
 
   return (
-    <div className="flex flex-row items-center justify-center py-20 h-screen md:h-[70vh] dark:bg-slate-950 bg-slate-950 relative w-full">
-      <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-full px-4 flex flex-col justify-center">
+    <div className="flex flex-row items-center justify-center py-20 h-[580px] md:h-[62vh] dark:bg-slate-950 bg-slate-950 relative w-full">
+      <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full px-4 flex flex-col justify-center">
         <div
           style={{ animation: 'fade-in-up 1s ease-out forwards' }}
           className="relative z-20 text-center"
@@ -402,8 +402,8 @@ export function GlobeDemo() {
             From seamless product generation to custom machine learning deployments, your reach is endless with our platforms.
           </p>
         </div>
-        <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent to-slate-950 z-40" />
-        <div className="absolute w-full -bottom-40 h-[600px] z-10 opacity-70">
+        <div className="absolute w-full bottom-0 inset-x-0 h-36 bg-gradient-to-b pointer-events-none select-none from-transparent to-slate-950 z-40" />
+        <div className="absolute w-full -bottom-28 h-[500px] z-10 opacity-65">
           <World data={sampleArcs} globeConfig={globeConfig} />
         </div>
       </div>

@@ -1,11 +1,13 @@
 import { Cpu, Globe, Smartphone, Zap, Shield, BarChart3 } from 'lucide-react';
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import useInView from '../hooks/useInView';
 
 const services = [
   {
     icon: Cpu,
     number: '01',
+    slug: 'ai-machine-learning',
     title: 'AI & Machine Learning',
     description:
       'Custom AI solutions that automate workflows, predict outcomes, and unlock insights from your data.',
@@ -13,6 +15,7 @@ const services = [
   {
     icon: Globe,
     number: '02',
+    slug: 'web-applications',
     title: 'Web Applications',
     description:
       'Scalable, performant web apps built with modern frameworks that deliver exceptional user experiences.',
@@ -20,6 +23,7 @@ const services = [
   {
     icon: Smartphone,
     number: '03',
+    slug: 'mobile-development',
     title: 'Mobile Development',
     description:
       'Native and cross-platform mobile apps designed for engagement, speed, and reliability.',
@@ -27,6 +31,7 @@ const services = [
   {
     icon: Zap,
     number: '04',
+    slug: 'rapid-prototyping',
     title: 'Rapid Prototyping',
     description:
       'Go from idea to interactive prototype in days, not months. Validate fast, iterate faster.',
@@ -34,6 +39,7 @@ const services = [
   {
     icon: Shield,
     number: '05',
+    slug: 'cloud-security',
     title: 'Cloud & Security',
     description:
       'Secure cloud infrastructure and DevOps pipelines that scale with your business needs.',
@@ -41,13 +47,14 @@ const services = [
   {
     icon: BarChart3,
     number: '06',
+    slug: 'data-analytics',
     title: 'Data Analytics',
     description:
       'Transform raw data into actionable dashboards and real-time reporting systems.',
   },
 ];
 
-function TiltCard({ children }: { children: React.ReactNode }) {
+function TiltCard({ children, className }: { children: React.ReactNode; className?: string }) {
   const cardRef = useRef<HTMLDivElement>(null);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -117,12 +124,14 @@ export default function Services() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, i) => (
             /* Reveal wrapper — handles entrance animation */
-            <div
+            <Link
               key={service.title}
+              to={`/services/${service.slug}`}
               style={{
                 opacity: isInView ? 1 : 0,
                 transform: isInView ? 'translateY(0)' : 'translateY(30px)',
                 transition: `opacity 0.6s ease ${i * 90}ms, transform 0.6s cubic-bezier(0.16,1,0.3,1) ${i * 90}ms`,
+                display: 'block',
               }}
             >
               <TiltCard>
@@ -140,9 +149,12 @@ export default function Services() {
                   </div>
                   <h3 className="text-xl font-semibold text-slate-100 mb-3">{service.title}</h3>
                   <p className="text-slate-400 leading-relaxed">{service.description}</p>
+                  <span className="mt-4 inline-flex items-center gap-1 text-indigo-400 text-sm font-medium group-hover:gap-2 transition-all duration-200">
+                    Learn more <span className="text-xs">→</span>
+                  </span>
                 </div>
               </TiltCard>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

@@ -7,6 +7,7 @@ import ServicesPage from './pages/ServicesPage';
 import ProjectsPage from './pages/ProjectsPage';
 import TeamPage from './pages/TeamPage';
 import DiscussProjectPage from './pages/DiscussProjectPage';
+import ServiceDetailPage from './pages/ServiceDetailPage';
 import LightRays from './components/LightRays';
 
 function ScrollToTop() {
@@ -45,6 +46,7 @@ function App() {
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/team" element={<TeamPage />} />
           <Route path="/discuss" element={<DiscussProjectPage />} />
+          <Route path="/services/:slug" element={<ServiceDetailPage />} />
         </Routes>
       </main>
     </BrowserRouter>
