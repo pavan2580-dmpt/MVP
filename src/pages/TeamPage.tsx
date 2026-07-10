@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { ArrowRight, Linkedin, Github, Twitter } from 'lucide-react';
+import { ArrowRight, Code2, Users, Clock, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Spline from '@splinetool/react-spline';
 import type { Application } from '@splinetool/runtime';
@@ -11,13 +11,13 @@ const team = [
     name: 'Geddam Mukesh',
     role: 'Client Relationship Manager',
     initial: 'GM',
-    bio: 'Builds lasting client partnerships and ensures every project aligns with business goals and expectations.',
+    bio: 'Build strategic clietn relationships , secures new business opportunities, and oversees project delivey to achieve successful outcomes.',
     color: 'from-indigo-500/20 to-violet-500/20',
     border: 'hover:border-indigo-500/50',
   },
   {
     name: 'Pavan Ganesh Krishna',
-    role: 'Tech Lead',
+    role: 'Tech Head',
     initial: 'PG',
     bio: 'Drives technical strategy and architecture, guiding the team to build scalable, reliable solutions.',
     color: 'from-cyan-500/20 to-blue-500/20',
@@ -41,7 +41,7 @@ const team = [
   },
   {
     name: 'Sheshadri Chamarty',
-    role: 'Backend AI Engineer',
+    role: 'AI Engineer',
     initial: 'SC',
     bio: 'Builds intelligent backend systems and AI-powered features that power smart, data-driven products.',
     color: 'from-purple-500/20 to-pink-500/20',
@@ -49,7 +49,7 @@ const team = [
   },
   {
     name: 'Vijay Pramod',
-    role: 'Frontend & Backend Engineer',
+    role: 'Full Stack Engineer',
     initial: 'VP',
     bio: 'Full-stack developer who bridges frontend polish with solid backend logic to deliver end-to-end features.',
     color: 'from-rose-500/20 to-red-500/20',
@@ -64,6 +64,37 @@ const culture = [
   { title: 'Work-Life Balance', description: 'Flexible hours, unlimited PTO, and a genuine respect for life outside of work.' },
 ];
 
+const hireBenefits = [
+  {
+    icon: Code2,
+    title: 'Full-Stack Expertise',
+    description: 'Frontend, backend, AI, DevOps, and design — plug in specialists who already work together as a unit.',
+    iconColor: 'text-indigo-400',
+    iconBg: 'bg-indigo-500/10 border-indigo-500/20',
+  },
+  {
+    icon: Users,
+    title: 'Dedicated Developers',
+    description: 'Get engineers embedded in your workflow, aligned with your roadmap, and accountable to your goals.',
+    iconColor: 'text-cyan-400',
+    iconBg: 'bg-cyan-500/10 border-cyan-500/20',
+  },
+  {
+    icon: Clock,
+    title: 'Flexible Engagement',
+    description: 'Scale your team up or down with monthly or project-based contracts that fit your budget and timeline.',
+    iconColor: 'text-emerald-400',
+    iconBg: 'bg-emerald-500/10 border-emerald-500/20',
+  },
+  {
+    icon: Shield,
+    title: 'Vetted & Reliable',
+    description: 'Every developer is battle-tested on real products — no hand-holding, no surprises, just consistent delivery.',
+    iconColor: 'text-purple-400',
+    iconBg: 'bg-purple-500/10 border-purple-500/20',
+  },
+];
+
 export default function TeamPage() {
   const [show, setShow] = useState(false);
   const [sceneLoaded, setSceneLoaded] = useState(false);
@@ -72,6 +103,7 @@ export default function TeamPage() {
   const splineContainerRef = useRef<HTMLDivElement>(null);
   const { ref: teamRef, isInView: teamVisible } = useInView();
   const { ref: cultureRef, isInView: cultureVisible } = useInView();
+  const { ref: hireRef, isInView: hireVisible } = useInView();
 
   useEffect(() => {
     const t = setTimeout(() => setShow(true), 100);
@@ -229,7 +261,7 @@ export default function TeamPage() {
                   <p className="text-indigo-400 text-sm font-medium mb-4">{member.role}</p>
                   <p className="text-slate-400 text-sm leading-relaxed mb-5">{member.bio}</p>
 
-                  <div className="flex items-center gap-3">
+                  {/* <div className="flex items-center gap-3">
                     <a href="#" className="text-slate-600 hover:text-slate-300 transition-colors">
                       <Linkedin className="w-4 h-4" />
                     </a>
@@ -239,7 +271,7 @@ export default function TeamPage() {
                     <a href="#" className="text-slate-600 hover:text-slate-300 transition-colors">
                       <Github className="w-4 h-4" />
                     </a>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             ))}
@@ -282,6 +314,69 @@ export default function TeamPage() {
                 <p className="text-slate-400 leading-relaxed">{item.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Hire Our Developers */}
+      <section className="py-24 px-6" ref={hireRef}>
+        <div className="max-w-6xl mx-auto">
+          <div
+            className="text-center mb-16"
+            style={{
+              opacity: hireVisible ? 1 : 0,
+              transform: hireVisible ? 'translateY(0)' : 'translateY(30px)',
+              transition: 'all 0.7s cubic-bezier(0.16, 1, 0.3, 1)',
+            }}
+          >
+            <p className="text-indigo-400 font-medium text-sm tracking-widest uppercase mb-4">Hire Our Developers</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-100 mb-6">
+              Extend Your Team With{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
+                Proven Talent
+              </span>
+            </h2>
+            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+              Need extra hands on your product? Hire our developers as dedicated team members — fully integrated,
+              remotely embedded, and ready to ship from day one.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            {hireBenefits.map((item, i) => (
+              <div
+                key={item.title}
+                className="p-8 rounded-2xl border border-slate-800 bg-slate-900/50 hover:border-indigo-500/30 transition-all duration-500"
+                style={{
+                  opacity: hireVisible ? 1 : 0,
+                  transform: hireVisible ? 'translateY(0)' : 'translateY(25px)',
+                  transition: `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${150 + i * 100}ms`,
+                }}
+              >
+                <div className={`w-12 h-12 rounded-xl ${item.iconBg} border flex items-center justify-center mb-5`}>
+                  <item.icon className={`w-6 h-6 ${item.iconColor}`} />
+                </div>
+                <h3 className="text-xl font-semibold text-slate-100 mb-3">{item.title}</h3>
+                <p className="text-slate-400 leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div
+            className="text-center"
+            style={{
+              opacity: hireVisible ? 1 : 0,
+              transform: hireVisible ? 'translateY(0)' : 'translateY(20px)',
+              transition: 'all 0.7s cubic-bezier(0.16, 1, 0.3, 1) 500ms',
+            }}
+          >
+            <Link
+              to="/discuss"
+              className="inline-flex items-center gap-2 bg-indigo-500 hover:bg-indigo-400 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/25"
+            >
+              Hire Our Developers
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>

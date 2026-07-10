@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ArrowUpRight, ChevronDown, Cpu, Users, Zap } from 'lucide-react';
+import { ArrowUpRight, ChevronDown, Cpu, Headphones, Users, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Scene from './Scene';
 import Orb from './Orb';
@@ -75,6 +75,23 @@ export default function Hero() {
         <div>
           <p className="text-slate-100 text-xs font-semibold leading-none mb-0.5">30+ Clients</p>
           <p className="text-slate-500 text-[10px]">Worldwide & satisfied</p>
+        </div>
+      </div>
+
+      <div
+        className="absolute z-20 bottom-[28%] right-[8%] hidden md:flex items-center gap-3 bg-slate-900/80 backdrop-blur-md px-4 py-3 rounded-full border border-slate-700/60 shadow-xl"
+        style={{
+          opacity: show ? 1 : 0,
+          transform: show ? 'translateX(0)' : 'translateX(20px)',
+          transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 2s',
+        }}
+      >
+        <div className="w-8 h-8 rounded-full bg-sky-500/20 border border-sky-500/30 flex items-center justify-center">
+          <Headphones className="w-4 h-4 text-sky-400" />
+        </div>
+        <div>
+          <p className="text-slate-100 text-xs font-semibold leading-none mb-0.5">24/7 Support</p>
+          <p className="text-slate-500 text-[10px]">Always available to help</p>
         </div>
       </div>
 

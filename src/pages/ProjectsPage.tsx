@@ -5,63 +5,7 @@ import LightRays from '../components/LightRays';
 import FloatingShapes from '../components/FloatingShapes';
 import useInView from '../hooks/useInView';
 import Footer from '../components/Footer';
-
-const projects = [
-  {
-    title: 'HealthPulse AI',
-    category: 'Healthcare',
-    description: 'An AI-powered patient monitoring platform that predicts health risks in real-time using wearable data streams. Reduced critical event response times by 60%.',
-    tags: ['React', 'Python', 'TensorFlow', 'AWS'],
-    gradient: 'from-blue-500/20 to-cyan-500/20',
-    border: 'hover:border-blue-500/50',
-    accent: 'text-blue-400 bg-blue-500/10',
-  },
-  {
-    title: 'FinTrack Pro',
-    category: 'Fintech',
-    description: 'A personal finance dashboard with intelligent budgeting, investment tracking, and predictive spending analysis. Serves 50K+ active users.',
-    tags: ['Next.js', 'Node.js', 'PostgreSQL', 'Stripe'],
-    gradient: 'from-emerald-500/20 to-teal-500/20',
-    border: 'hover:border-emerald-500/50',
-    accent: 'text-emerald-400 bg-emerald-500/10',
-  },
-  {
-    title: 'EduVerse',
-    category: 'EdTech',
-    description: 'An immersive learning platform with 3D classrooms, real-time collaboration, and AI-driven personalized curricula. Used by 200+ schools worldwide.',
-    tags: ['Three.js', 'WebRTC', 'GPT-4', 'MongoDB'],
-    gradient: 'from-purple-500/20 to-pink-500/20',
-    border: 'hover:border-purple-500/50',
-    accent: 'text-purple-400 bg-purple-500/10',
-  },
-  {
-    title: 'LogiFlow',
-    category: 'Logistics',
-    description: 'Route optimization and fleet management system that reduced delivery times by 35% for enterprise clients across 12 countries.',
-    tags: ['React Native', 'Go', 'Redis', 'GCP'],
-    gradient: 'from-orange-500/20 to-amber-500/20',
-    border: 'hover:border-orange-500/50',
-    accent: 'text-orange-400 bg-orange-500/10',
-  },
-  {
-    title: 'ShopSense',
-    category: 'E-Commerce',
-    description: 'AI-powered product recommendation engine and visual search tool that increased conversions by 28% for major retailers.',
-    tags: ['Python', 'React', 'ElasticSearch', 'Docker'],
-    gradient: 'from-pink-500/20 to-rose-500/20',
-    border: 'hover:border-pink-500/50',
-    accent: 'text-pink-400 bg-pink-500/10',
-  },
-  {
-    title: 'GreenGrid',
-    category: 'CleanTech',
-    description: 'Smart energy monitoring dashboard for solar farms with predictive maintenance alerts and efficiency optimization.',
-    tags: ['Vue.js', 'Rust', 'TimescaleDB', 'IoT'],
-    gradient: 'from-lime-500/20 to-green-500/20',
-    border: 'hover:border-lime-500/50',
-    accent: 'text-lime-400 bg-lime-500/10',
-  },
-];
+import { projects } from '../data/projects';
 
 const shapesConfig = [
   { position: [-4, 2, -5] as [number, number, number], rotation: [0.2, 0.7, 0] as [number, number, number], scale: 1.1, speed: 0.45, type: 'dodecahedron' as const },
@@ -125,44 +69,63 @@ export default function ProjectsPage() {
       {/* Projects Grid */}
       <section className="py-24 px-6" ref={gridRef}>
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, i) => (
-            <div
-              key={project.title}
-              className={`group relative p-8 rounded-2xl border border-slate-800 bg-slate-900/50 ${project.border} transition-all duration-500 hover:-translate-y-1 overflow-hidden cursor-pointer`}
-              style={{
-                opacity: gridVisible ? 1 : 0,
-                transform: gridVisible ? 'translateY(0)' : 'translateY(30px)',
-                transition: `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${i * 100}ms`,
-              }}
-            >
-              <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+          {projects.map((project, i) => {
+            const CardWrapper = project.url ? 'a' : 'div';
+            const cardProps = project.url
+              ? {
+                  href: project.url,
+                  target: '_blank',
+                  rel: 'noopener noreferrer',
+                }
+              : {};
 
-              <div className="relative z-10">
-                <div className="flex items-center justify-between mb-5">
-                  <span className={`text-xs font-medium tracking-widest uppercase px-3 py-1 rounded-full ${project.accent}`}>
-                    {project.category}
-                  </span>
-                  <ExternalLink className="w-4 h-4 text-slate-600 group-hover:text-slate-300 transition-colors" />
+            return (
+              <CardWrapper
+                key={project.title}
+                {...cardProps}
+                className={`group relative p-8 rounded-2xl border border-slate-800 bg-slate-900/50 ${project.border} transition-all duration-500 hover:-translate-y-1 overflow-hidden cursor-pointer block`}
+                style={{
+                  opacity: gridVisible ? 1 : 0,
+                  transform: gridVisible ? 'translateY(0)' : 'translateY(30px)',
+                  transition: `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${i * 100}ms`,
+                }}
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+
+                <div className="relative z-10">
+                  <div className="flex items-start justify-between gap-4 mb-5">
+                    <div className="flex items-center gap-4 min-w-0">
+                      <img
+                        src={project.icon}
+                        alt={`${project.title} logo`}
+                        className="w-12 h-12 rounded-xl object-cover border border-slate-700/80 bg-slate-950/60 shrink-0"
+                      />
+                      <span className={`text-xs font-medium tracking-widest uppercase px-3 py-1 rounded-full ${project.accent}`}>
+                        {project.category}
+                      </span>
+                    </div>
+                    <ExternalLink className="w-4 h-4 text-slate-600 group-hover:text-slate-300 transition-colors shrink-0" />
+                  </div>
+
+                  <h3 className="text-2xl font-semibold text-slate-100 mb-3 group-hover:text-white transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-slate-400 leading-relaxed mb-6">{project.description}</p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs font-medium text-slate-300 bg-slate-800/80 px-3 py-1 rounded-full border border-slate-700"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-
-                <h3 className="text-2xl font-semibold text-slate-100 mb-3 group-hover:text-white transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-slate-400 leading-relaxed mb-6">{project.description}</p>
-
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs font-medium text-slate-300 bg-slate-800/80 px-3 py-1 rounded-full border border-slate-700"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
+              </CardWrapper>
+            );
+          })}
         </div>
       </section>
 
