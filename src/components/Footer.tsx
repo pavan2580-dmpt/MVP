@@ -7,9 +7,9 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           <div className="md:col-span-1">
-            <Link to="/" className="block mb-4">
+            {/* <Link to="/" className="block mb-4">
               <img src={logo} alt="MVP Innovations" className="h-8" />
-            </Link>
+            </Link> */}
             <p className="text-slate-500 text-sm leading-relaxed">
               Building the future, one MVP at a time. We turn bold ideas into market-ready digital products.
             </p>
@@ -54,6 +54,16 @@ export default function Footer() {
             <a href="#" className="text-slate-600 hover:text-slate-400 transition-colors text-sm">Privacy Policy</a>
             <a href="#" className="text-slate-600 hover:text-slate-400 transition-colors text-sm">Terms of Service</a>
           </div>
+        </div>
+
+        <div className="flex justify-center pt-8">
+          <Link to="/">
+            <img
+              src={logo}
+              alt="MVP Innovations"
+              className="w-[90%] h-auto object-contain"
+            />
+          </Link>
         </div>
       </div>
     </footer>

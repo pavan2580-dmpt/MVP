@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ExternalLink, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import LightRays from '../components/LightRays';
 import FloatingShapes from '../components/FloatingShapes';
@@ -69,27 +69,17 @@ export default function ProjectsPage() {
       {/* Projects Grid */}
       <section className="py-24 px-6" ref={gridRef}>
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, i) => {
-            const CardWrapper = project.url ? 'a' : 'div';
-            const cardProps = project.url
-              ? {
-                  href: project.url,
-                  target: '_blank',
-                  rel: 'noopener noreferrer',
-                }
-              : {};
-
-            return (
-              <CardWrapper
-                key={project.title}
-                {...cardProps}
-                className={`group relative p-8 rounded-2xl border border-slate-800 bg-slate-900/50 ${project.border} transition-all duration-500 hover:-translate-y-1 overflow-hidden cursor-pointer block`}
-                style={{
-                  opacity: gridVisible ? 1 : 0,
-                  transform: gridVisible ? 'translateY(0)' : 'translateY(30px)',
-                  transition: `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${i * 100}ms`,
-                }}
-              >
+          {projects.map((project, i) => (
+            <Link
+              key={project.title}
+              to={`/projects/${project.slug}`}
+              className={`group relative p-8 rounded-2xl border border-slate-800 bg-slate-900/50 ${project.border} transition-all duration-500 hover:-translate-y-1 overflow-hidden cursor-pointer block`}
+              style={{
+                opacity: gridVisible ? 1 : 0,
+                transform: gridVisible ? 'translateY(0)' : 'translateY(30px)',
+                transition: `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${i * 100}ms`,
+              }}
+            >
                 <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
                 <div className="relative z-10">
@@ -104,7 +94,7 @@ export default function ProjectsPage() {
                         {project.category}
                       </span>
                     </div>
-                    <ExternalLink className="w-4 h-4 text-slate-600 group-hover:text-slate-300 transition-colors shrink-0" />
+                    <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-slate-300 transition-colors shrink-0" />
                   </div>
 
                   <h3 className="text-2xl font-semibold text-slate-100 mb-3 group-hover:text-white transition-colors">
@@ -123,9 +113,8 @@ export default function ProjectsPage() {
                     ))}
                   </div>
                 </div>
-              </CardWrapper>
-            );
-          })}
+            </Link>
+          ))}
         </div>
       </section>
 
