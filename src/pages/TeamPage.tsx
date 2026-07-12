@@ -5,6 +5,7 @@ import Spline from '@splinetool/react-spline';
 import type { Application } from '@splinetool/runtime';
 import useInView from '../hooks/useInView';
 import Footer from '../components/Footer';
+import useSEO from '../hooks/useSEO';
 
 const team = [
   {
@@ -96,6 +97,12 @@ const hireBenefits = [
 ];
 
 export default function TeamPage() {
+  useSEO({
+    title: 'Our Team | The People Behind MVP Innovations',
+    description: 'Meet the engineers and builders at MVP Innovations — a lean, experienced team that has delivered 50+ products for startups and enterprises across web, mobile, and AI.',
+    canonical: 'https://www.mvpinnovations.in/team',
+  });
+
   const [show, setShow] = useState(false);
   const [sceneLoaded, setSceneLoaded] = useState(false);
   const splineRef = useRef<Application | null>(null);

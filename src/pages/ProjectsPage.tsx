@@ -7,6 +7,7 @@ import useInView from '../hooks/useInView';
 import Footer from '../components/Footer';
 import { projects } from '../data/projects';
 import ProjectLogo from '../components/ProjectLogo';
+import useSEO from '../hooks/useSEO';
 
 const shapesConfig = [
   { position: [-4, 2, -5] as [number, number, number], rotation: [0.2, 0.7, 0] as [number, number, number], scale: 1.1, speed: 0.45, type: 'dodecahedron' as const },
@@ -16,6 +17,12 @@ const shapesConfig = [
 ];
 
 export default function ProjectsPage() {
+  useSEO({
+    title: 'Our Projects | Portfolio of MVPs We Have Built — MVP Innovations',
+    description: 'Explore MVPs and digital products built by MVP Innovations — from e-commerce and EV charging platforms to social apps and food ordering systems.',
+    canonical: 'https://www.mvpinnovations.in/projects',
+  });
+
   const [show, setShow] = useState(false);
   const { ref: gridRef, isInView: gridVisible } = useInView();
 

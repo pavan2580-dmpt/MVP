@@ -3,10 +3,19 @@ import { ArrowLeft, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import Footer from '../components/Footer';
 import { getProjectBySlug } from '../data/projects';
 import ProjectLogo from '../components/ProjectLogo';
+import useSEO from '../hooks/useSEO';
 
 export default function ProjectDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const project = slug ? getProjectBySlug(slug) : undefined;
+
+  useSEO({
+    title: project ? `${project.title} | MVP Innovations` : 'Project Not Found | MVP Innovations',
+    description: project
+      ? `${project.description} Built by MVP Innovations.`
+      : 'This project page could not be found.',
+    canonical: slug ? `https://www.mvpinnovations.in/projects/${slug}` : 'https://www.mvpinnovations.in/projects',
+  });
 
   if (!project) {
     return (

@@ -5,6 +5,7 @@ import LightRays from '../components/LightRays';
 import FloatingShapes from '../components/FloatingShapes';
 import useInView from '../hooks/useInView';
 import Footer from '../components/Footer';
+import useSEO from '../hooks/useSEO';
 
 const stats = [
   { value: '50+', label: 'Projects Delivered' },
@@ -37,6 +38,12 @@ const values = [
 ];
 
 export default function AboutPage() {
+  useSEO({
+    title: 'About MVP Innovations | Our Story, Mission & Team',
+    description: 'Learn about MVP Innovations — a product studio with 3+ years of experience, 50+ projects delivered, and a mission to turn bold ideas into digital reality.',
+    canonical: 'https://www.mvpinnovations.in/about',
+  });
+
   const [show, setShow] = useState(false);
   const { ref: valuesRef, isInView: valuesVisible } = useInView();
   const { ref: teamCtaRef, isInView: teamCtaVisible } = useInView();

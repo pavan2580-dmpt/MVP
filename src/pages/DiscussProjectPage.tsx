@@ -3,6 +3,7 @@ import { Send, CheckCircle, X } from "lucide-react";
 import LightRays from "../components/LightRays";
 import SilkBalls from "../components/SilkBalls";
 import Footer from "../components/Footer";
+import useSEO from "../hooks/useSEO";
 
 interface FormFields {
   name: string;
@@ -88,6 +89,12 @@ function SuccessModal({ onClose }: { onClose: () => void }) {
 
 /* ─── Page ─── */
 export default function DiscussProjectPage() {
+  useSEO({
+    title: 'Discuss a Project | Start Building With MVP Innovations',
+    description: 'Have an idea? Tell us about your project and we will get back to you within 24 hours. MVP Innovations builds web apps, mobile apps, and AI products.',
+    canonical: 'https://www.mvpinnovations.in/discuss',
+  });
+
   const [show, setShow] = useState(false);
   const [fields, setFields] = useState<FormFields>({
     name: "",

@@ -102,4 +102,46 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Project Detail Pages -->
+
+  <!-- Kuppam Organics -->
+  <url>
+    <loc>https://www.mvpinnovations.in/projects/kuppam-organics</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Recharz -->
+  <url>
+    <loc>https://www.mvpinnovations.in/projects/recharz</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ZOOOP -->
+  <url>
+    <loc>https://www.mvpinnovations.in/projects/zooop</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Sampradaya Kitchen -->
+  <url>
+    <loc>https://www.mvpinnovations.in/projects/sampradaya-kitchen</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Aggrekart -->
+  <url>
+    <loc>https://www.mvpinnovations.in/projects/aggrekart</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>

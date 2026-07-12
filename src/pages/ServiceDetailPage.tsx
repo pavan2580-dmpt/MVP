@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ArrowUpRight, ChevronDown, ChevronUp, Code } from 'lucide-react';
+import useSEO from '../hooks/useSEO';
 import { useState } from 'react';
 import type { IconType } from 'react-icons';
 import {
@@ -436,6 +437,14 @@ function FaqAccordion({ faq }: { faq: FaqEntry }) {
 export default function ServiceDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const service = slug ? SERVICES[slug] : undefined;
+
+  useSEO({
+    title: service ? `${service.title} | MVP Innovations` : 'Service Not Found | MVP Innovations',
+    description: service
+      ? `${service.tagline} — ${service.description.slice(0, 120)}`
+      : 'This service page could not be found.',
+    canonical: slug ? `https://www.mvpinnovations.in/services/${slug}` : 'https://www.mvpinnovations.in/services',
+  });
 
   if (!service) {
     return (

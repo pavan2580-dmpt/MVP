@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import useInView from '../hooks/useInView';
 import Footer from '../components/Footer';
 import { GlobeDemo } from '../components/GlobeDemo';
+import useSEO from '../hooks/useSEO';
 
 const services = [
   {
@@ -75,6 +76,12 @@ const process = [
 ];
 
 export default function ServicesPage() {
+  useSEO({
+    title: 'Our Services | AI, Web, Mobile & Cloud — MVP Innovations',
+    description: 'From AI & machine learning to web apps, mobile development, rapid prototyping, cloud infrastructure, and data analytics — MVP Innovations builds it all.',
+    canonical: 'https://www.mvpinnovations.in/services',
+  });
+
   const { ref: gridRef, isInView: gridVisible } = useInView();
   const { ref: processRef, isInView: processVisible } = useInView();
 
