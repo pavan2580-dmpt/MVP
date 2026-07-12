@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import Footer from '../components/Footer';
 import { getProjectBySlug } from '../data/projects';
+import ProjectLogo from '../components/ProjectLogo';
 
 export default function ProjectDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -36,12 +37,8 @@ export default function ProjectDetailPage() {
 
           <div className={`relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/50 p-8 md:p-12 mb-12`}>
             <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-60`} />
-            <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-8">
-              <img
-                src={project.icon}
-                alt={`${project.title} logo`}
-                className="w-24 h-24 rounded-2xl object-cover border border-slate-700/80 bg-slate-950/60 shrink-0"
-              />
+            <div className={`relative z-10 flex flex-col md:flex-row gap-8 ${project.iconWide ? 'md:items-start' : 'md:items-center'}`}>
+              <ProjectLogo project={project} size="detail" />
               <div>
                 <span className={`inline-flex text-xs font-medium tracking-widest uppercase px-3 py-1 rounded-full mb-4 ${project.accent}`}>
                   {project.category}

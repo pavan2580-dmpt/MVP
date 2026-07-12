@@ -2,6 +2,7 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import useInView from '../hooks/useInView';
 import { projects } from '../data/projects';
+import ProjectLogo from './ProjectLogo';
 
 export default function Projects() {
   const { ref, isInView } = useInView();
@@ -65,11 +66,7 @@ export default function Projects() {
                 <div className="relative z-10">
                   <div className="flex items-start justify-between gap-4 mb-5">
                     <div className="flex items-center gap-4 min-w-0">
-                      <img
-                        src={project.icon}
-                        alt={`${project.title} logo`}
-                        className="w-12 h-12 rounded-xl object-cover border border-slate-700/80 bg-slate-950/60 shrink-0"
-                      />
+                      <ProjectLogo project={project} />
                       <span className={`text-xs font-medium tracking-widest uppercase px-3 py-1 rounded-full ${project.accent}`}>
                         {project.category}
                       </span>

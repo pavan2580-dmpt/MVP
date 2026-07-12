@@ -7,9 +7,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           <div className="md:col-span-1">
-            {/* <Link to="/" className="block mb-4">
-              <img src={logo} alt="MVP Innovations" className="h-8" />
-            </Link> */}
+         
             <p className="text-slate-500 text-sm leading-relaxed">
               Building the future, one MVP at a time. We turn bold ideas into market-ready digital products.
             </p>
@@ -38,9 +36,8 @@ export default function Footer() {
           <div>
             <h4 className="text-slate-200 font-medium mb-4 text-sm">Connect</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-slate-500 hover:text-slate-300 transition-colors text-sm">Twitter / X</a></li>
               <li><a href="#" className="text-slate-500 hover:text-slate-300 transition-colors text-sm">LinkedIn</a></li>
-              <li><a href="#" className="text-slate-500 hover:text-slate-300 transition-colors text-sm">GitHub</a></li>
+              <li><a href="#" className="text-slate-500 hover:text-slate-300 transition-colors text-sm">Instagram</a></li>
               <li><a href="mailto:hello@mvpinnovations.com" className="text-slate-500 hover:text-slate-300 transition-colors text-sm">Email</a></li>
             </ul>
           </div>

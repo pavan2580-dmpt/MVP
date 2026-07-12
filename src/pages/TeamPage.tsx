@@ -8,8 +8,8 @@ import Footer from '../components/Footer';
 
 const team = [
   {
-    name: 'Geddam Mukesh',
-    role: 'Client Relationship Manager',
+    name: 'Mukesh Geddam',
+    role: 'Business Development Manager',
     initial: 'GM',
     bio: 'Build strategic clietn relationships , secures new business opportunities, and oversees project delivey to achieve successful outcomes.',
     color: 'from-indigo-500/20 to-violet-500/20',

@@ -7,6 +7,7 @@ export type Project = {
   highlights: string[];
   tags: string[];
   icon: string;
+  iconWide?: boolean;
   url?: string;
   gradient: string;
   border: string;
@@ -92,10 +93,32 @@ export const projects: Project[] = [
       'Web experience tailored for restaurant operations',
     ],
     tags: ['Food Ordering', 'Kitchen Operations', 'Customer Orders', 'Web App'],
-    icon: '/projects/sampradaya-kitchen.svg',
+    icon: '/projects/sampradaya-kitchen.png',
     gradient: 'from-orange-500/20 to-amber-500/20',
     border: 'hover:border-orange-500/50',
     accent: 'text-orange-400 bg-orange-500/10',
+  },
+  {
+    slug: 'aggrekart',
+    title: 'Aggrekart',
+    category: 'Construction E-Commerce',
+    description:
+      'A digital platform for ordering construction materials with real-time pricing, bulk procurement, and reliable doorstep delivery to building sites.',
+    overview:
+      'Aggrekart simplifies construction material sourcing for builders, contractors, and developers. The platform brings cement, TMT steel, aggregates, bricks, and other essentials into one interface with transparent pricing, streamlined ordering, and site delivery — replacing the hassle of juggling multiple vendors.',
+    highlights: [
+      'Online ordering for cement, steel, aggregates, bricks, and more',
+      'Real-time price visibility and comparison across materials',
+      'Bulk procurement and doorstep delivery to construction sites',
+      'Digital procurement workflow built for builders and contractors',
+    ],
+    tags: ['E-Commerce', 'Construction', 'Bulk Ordering', 'Doorstep Delivery'],
+    icon: '/projects/Aggrekart-logo.png',
+    iconWide: true,
+    url: 'https://aggrekart.com',
+    gradient: 'from-rose-500/20 to-red-500/20',
+    border: 'hover:border-rose-500/50',
+    accent: 'text-rose-400 bg-rose-500/10',
   },
 ];
 

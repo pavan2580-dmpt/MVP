@@ -6,6 +6,7 @@ import FloatingShapes from '../components/FloatingShapes';
 import useInView from '../hooks/useInView';
 import Footer from '../components/Footer';
 import { projects } from '../data/projects';
+import ProjectLogo from '../components/ProjectLogo';
 
 const shapesConfig = [
   { position: [-4, 2, -5] as [number, number, number], rotation: [0.2, 0.7, 0] as [number, number, number], scale: 1.1, speed: 0.45, type: 'dodecahedron' as const },
@@ -85,11 +86,7 @@ export default function ProjectsPage() {
                 <div className="relative z-10">
                   <div className="flex items-start justify-between gap-4 mb-5">
                     <div className="flex items-center gap-4 min-w-0">
-                      <img
-                        src={project.icon}
-                        alt={`${project.title} logo`}
-                        className="w-12 h-12 rounded-xl object-cover border border-slate-700/80 bg-slate-950/60 shrink-0"
-                      />
+                      <ProjectLogo project={project} />
                       <span className={`text-xs font-medium tracking-widest uppercase px-3 py-1 rounded-full ${project.accent}`}>
                         {project.category}
                       </span>
