@@ -38,7 +38,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li><a href="#" className="text-slate-500 hover:text-slate-300 transition-colors text-sm">LinkedIn</a></li>
               <li><a href="#" className="text-slate-500 hover:text-slate-300 transition-colors text-sm">Instagram</a></li>
-              <li><a href="mailto:hello@mvpinnovations.com" className="text-slate-500 hover:text-slate-300 transition-colors text-sm">Email</a></li>
+              <li><a href="mailto:hello@mvpinnovations.in" className="text-slate-500 hover:text-slate-300 transition-colors text-sm">hello@mvpinnovations.in</a></li>
             </ul>
           </div>
         </div>
