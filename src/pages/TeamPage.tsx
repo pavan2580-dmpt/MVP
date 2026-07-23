@@ -7,56 +7,56 @@ import useInView from '../hooks/useInView';
 import Footer from '../components/Footer';
 import useSEO from '../hooks/useSEO';
 
-const team = [
-  {
-    name: 'Mukesh Geddam',
-    role: 'Business Development Manager',
-    initial: 'GM',
-    bio: 'Build strategic clietn relationships , secures new business opportunities, and oversees project delivey to achieve successful outcomes.',
-    color: 'from-indigo-500/20 to-violet-500/20',
-    border: 'hover:border-indigo-500/50',
-  },
-  {
-    name: 'Pavan Ganesh Krishna',
-    role: 'Tech Head',
-    initial: 'PG',
-    bio: 'Drives technical strategy and architecture, guiding the team to build scalable, reliable solutions.',
-    color: 'from-cyan-500/20 to-blue-500/20',
-    border: 'hover:border-cyan-500/50',
-  },
-  {
-    name: 'Venkat Sai',
-    role: 'Design Lead',
-    initial: 'VS',
-    bio: 'Crafts intuitive, polished interfaces and design systems that bring products to life for users.',
-    color: 'from-orange-500/20 to-amber-500/20',
-    border: 'hover:border-orange-500/50',
-  },
-  {
-    name: 'Yaswanth Sai',
-    role: 'DevOps Engineer',
-    initial: 'YS',
-    bio: 'Keeps infrastructure running smoothly with CI/CD pipelines, cloud deployments, and reliable monitoring.',
-    color: 'from-emerald-500/20 to-teal-500/20',
-    border: 'hover:border-emerald-500/50',
-  },
-  {
-    name: 'Sheshadri Chamarty',
-    role: 'AI Engineer',
-    initial: 'SC',
-    bio: 'Builds intelligent backend systems and AI-powered features that power smart, data-driven products.',
-    color: 'from-purple-500/20 to-pink-500/20',
-    border: 'hover:border-purple-500/50',
-  },
-  {
-    name: 'Vijay Pramod',
-    role: 'Full Stack Engineer',
-    initial: 'VP',
-    bio: 'Full-stack developer who bridges frontend polish with solid backend logic to deliver end-to-end features.',
-    color: 'from-rose-500/20 to-red-500/20',
-    border: 'hover:border-rose-500/50',
-  },
-];
+// const team = [
+//   {
+//     name: 'Mukesh Geddam',
+//     role: 'Business Development Manager',
+//     initial: 'GM',
+//     bio: 'Build strategic clietn relationships , secures new business opportunities, and oversees project delivey to achieve successful outcomes.',
+//     color: 'from-indigo-500/20 to-violet-500/20',
+//     border: 'hover:border-indigo-500/50',
+//   },
+//   {
+//     name: 'Pavan Ganesh Krishna',
+//     role: 'Tech Head',
+//     initial: 'PG',
+//     bio: 'Drives technical strategy and architecture, guiding the team to build scalable, reliable solutions.',
+//     color: 'from-cyan-500/20 to-blue-500/20',
+//     border: 'hover:border-cyan-500/50',
+//   },
+//   {
+//     name: 'Venkat Sai',
+//     role: 'Design Lead',
+//     initial: 'VS',
+//     bio: 'Crafts intuitive, polished interfaces and design systems that bring products to life for users.',
+//     color: 'from-orange-500/20 to-amber-500/20',
+//     border: 'hover:border-orange-500/50',
+//   },
+//   {
+//     name: 'Yaswanth Sai',
+//     role: 'DevOps Engineer',
+//     initial: 'YS',
+//     bio: 'Keeps infrastructure running smoothly with CI/CD pipelines, cloud deployments, and reliable monitoring.',
+//     color: 'from-emerald-500/20 to-teal-500/20',
+//     border: 'hover:border-emerald-500/50',
+//   },
+//   {
+//     name: 'Sheshadri Chamarty',
+//     role: 'AI Engineer',
+//     initial: 'SC',
+//     bio: 'Builds intelligent backend systems and AI-powered features that power smart, data-driven products.',
+//     color: 'from-purple-500/20 to-pink-500/20',
+//     border: 'hover:border-purple-500/50',
+//   },
+//   {
+//     name: 'Vijay Pramod',
+//     role: 'Full Stack Engineer',
+//     initial: 'VP',
+//     bio: 'Full-stack developer who bridges frontend polish with solid backend logic to deliver end-to-end features.',
+//     color: 'from-rose-500/20 to-red-500/20',
+//     border: 'hover:border-rose-500/50',
+//   },
+// ];
 
 const culture = [
   { title: 'Remote-First', description: 'Work from anywhere. Our distributed team spans timezones, united by shared purpose.' },
@@ -108,7 +108,7 @@ export default function TeamPage() {
   const splineRef = useRef<Application | null>(null);
   const clampRef = useRef<number | null>(null);
   const splineContainerRef = useRef<HTMLDivElement>(null);
-  const { ref: teamRef, isInView: teamVisible } = useInView();
+  // const { ref: teamRef, isInView: teamVisible } = useInView();
   const { ref: cultureRef, isInView: cultureVisible } = useInView();
   const { ref: hireRef, isInView: hireVisible } = useInView();
 
@@ -228,7 +228,7 @@ export default function TeamPage() {
       </section>
 
       {/* Team Grid */}
-      <section className="py-24 px-6" ref={teamRef}>
+      {/* <section className="py-24 px-6" ref={teamRef}>
         <div className="max-w-6xl mx-auto">
           <div
             className="text-center mb-16"
@@ -268,23 +268,13 @@ export default function TeamPage() {
                   <p className="text-indigo-400 text-sm font-medium mb-4">{member.role}</p>
                   <p className="text-slate-400 text-sm leading-relaxed mb-5">{member.bio}</p>
 
-                  {/* <div className="flex items-center gap-3">
-                    <a href="#" className="text-slate-600 hover:text-slate-300 transition-colors">
-                      <Linkedin className="w-4 h-4" />
-                    </a>
-                    <a href="#" className="text-slate-600 hover:text-slate-300 transition-colors">
-                      <Twitter className="w-4 h-4" />
-                    </a>
-                    <a href="#" className="text-slate-600 hover:text-slate-300 transition-colors">
-                      <Github className="w-4 h-4" />
-                    </a>
-                  </div> */}
+                 
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Culture */}
       <section className="py-24 px-6" ref={cultureRef}>

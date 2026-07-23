@@ -11,6 +11,7 @@ export default function Footer() {
             <p className="text-slate-500 text-sm leading-relaxed">
               Building the future, one MVP at a time. We turn bold ideas into market-ready digital products.
             </p>
+            <img src={logo} alt="MVP Innovations" className="mt-4 h-10 w-auto object-contain" />
           </div>
 
           <div>
@@ -53,15 +54,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex justify-center pt-8">
-          <Link to="/">
-            <img
-              src={logo}
-              alt="MVP Innovations"
-              className="w-[90%] h-auto object-contain"
-            />
-          </Link>
-        </div>
+    
       </div>
     </footer>
   );

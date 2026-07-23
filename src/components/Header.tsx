@@ -1,7 +1,7 @@
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
-import logo from '../assets/logo.png';
+import logo from '../assets/MVP letter head logo.png';
 
 const navLinks = [
   { to: '/', label: 'Home' },
